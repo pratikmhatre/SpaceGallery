@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.cypher.spacegallery.databinding.FragmentGalleryListBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class GalleryListFragment : Fragment() {
     private var _binding: FragmentGalleryListBinding? = null
     private val binding get() = _binding!!
