@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/iv_gallery"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_list_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:placeholderImage="@drawable/ic_loading_image"
+        app:roundedCornerRadius="@dimen/_4dp"
+        app:viewAspectRatio="1" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_rounded_bottom"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:padding="@dimen/_16dp"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/iv_gallery"
+        app:layout_constraintEnd_toEndOf="@id/iv_gallery"
+        app:layout_constraintStart_toStartOf="@+id/iv_gallery" />
+</androidx.constraintlayout.widget.ConstraintLayout>
