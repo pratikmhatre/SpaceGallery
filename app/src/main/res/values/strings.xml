@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Space Gallery</string>
+    <string name="gallery_list_fragment">f</string>
 </resources>
