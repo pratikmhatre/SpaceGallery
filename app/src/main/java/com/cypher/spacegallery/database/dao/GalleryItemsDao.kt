@@ -1,9 +1,6 @@
 package com.cypher.spacegallery.database.dao
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 import com.cypher.spacegallery.core.Constants
 import com.cypher.spacegallery.database.entities.GalleryItemTable
 
@@ -17,4 +14,7 @@ interface GalleryItemsDao {
 
     @Update
     suspend fun updateGalleryItem(item: GalleryItemTable)
+
+    @Query("DELETE FROM ${Constants.GALLERY_TABLE}")
+    suspend fun deleteAllGalleryItems()
 }

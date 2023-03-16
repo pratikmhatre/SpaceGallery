@@ -32,6 +32,9 @@ class GalleryListRepositoryImpl @Inject constructor(
                 it.toGalleryItemTable()
             }
 
+            //delete existing records
+            galleryItemsDao.deleteAllGalleryItems()
+
             //save to db
             galleryItemsDao.insertGalleryItemsList(galleryTableList)
 
