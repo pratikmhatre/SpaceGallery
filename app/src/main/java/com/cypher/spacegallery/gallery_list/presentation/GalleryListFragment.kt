@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.cypher.spacegallery.core.helpers.Utils
@@ -97,7 +98,8 @@ class GalleryListFragment : Fragment() {
     }
 
     private fun openDetailsFragment(position: Int) {
-
+        val direction = GalleryListFragmentDirections.toDetailsFragment(position)
+        findNavController().navigate(direction)
     }
 
     private fun showErrorMessage(message: String?) {

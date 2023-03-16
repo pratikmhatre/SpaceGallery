@@ -7,7 +7,6 @@ import com.cypher.spacegallery.gallery_list.domain.usecases.GetGalleryList
 import com.cypher.spacegallery.gallery_list.presentation.events.GalleryDataState
 import com.cypher.spacegallery.gallery_list.presentation.events.UiEvents
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow

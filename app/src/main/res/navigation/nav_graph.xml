@@ -11,5 +11,22 @@
         android:label="@string/gallery_list_fragment"
         tools:layout="@layout/fragment_gallery_list">
 
+        <action
+            android:id="@+id/toDetailsFragment"
+            app:destination="@id/GalleryDetailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/GalleryDetailsFragment"
+        android:name="com.cypher.spacegallery.gallery_details.presentation.GalleryDetailsFragment"
+        android:label="@string/gallery_details_fragment"
+        tools:layout="@layout/fragment_gallery_details">
+        <argument
+            android:name="position"
+            android:defaultValue="0"
+            app:argType="integer" />
     </fragment>
 </navigation>
