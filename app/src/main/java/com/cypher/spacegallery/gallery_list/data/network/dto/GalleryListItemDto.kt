@@ -1,7 +1,7 @@
 package com.cypher.spacegallery.gallery_list.data.network.dto
 
 import com.google.gson.annotations.SerializedName
-import com.cypher.spacegallery.database.entities.GalleryItemTable
+import com.cypher.spacegallery.core.database.entities.GalleryItemTable
 import com.cypher.spacegallery.gallery_list.domain.models.GalleryListItem
 
 

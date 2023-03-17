@@ -1,8 +1,8 @@
-package com.cypher.spacegallery.database.dao
+package com.cypher.spacegallery.core.database.dao
 
 import androidx.room.*
 import com.cypher.spacegallery.core.Constants
-import com.cypher.spacegallery.database.entities.GalleryItemTable
+import com.cypher.spacegallery.core.database.entities.GalleryItemTable
 
 @Dao
 interface GalleryItemsDao {

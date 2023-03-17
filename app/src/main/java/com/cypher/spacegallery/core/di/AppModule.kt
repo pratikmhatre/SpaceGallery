@@ -1,9 +1,9 @@
-package com.cypher.spacegallery.di
+package com.cypher.spacegallery.core.di
 
 import android.content.Context
 import androidx.room.Room
-import com.cypher.spacegallery.database.GalleryDb
-import com.cypher.spacegallery.database.dao.GalleryItemsDao
+import com.cypher.spacegallery.core.database.GalleryDb
+import com.cypher.spacegallery.core.database.dao.GalleryItemsDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

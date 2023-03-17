@@ -1,4 +1,4 @@
-package com.cypher.spacegallery.database.entities
+package com.cypher.spacegallery.core.database.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

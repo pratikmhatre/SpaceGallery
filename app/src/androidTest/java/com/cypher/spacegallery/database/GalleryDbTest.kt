@@ -69,20 +69,4 @@ class GalleryDbTest {
         galleryDb.close()
     }
 
-    private fun getDummyItemList(count: Int): List<GalleryItemTable> {
-        val list = List(count) {
-            GalleryItemTable(
-                id = it.toLong(),
-                date = "Date $it",
-                explanation = "Explanation $it",
-                hdUrl = "Hd Url $it",
-                copyright = null,
-                mediaType = "Type $it",
-                serviceVersion = "Version $it",
-                title = "Title $it",
-                url = "Url $it",
-            )
-        }
-        return list
-    }
 }

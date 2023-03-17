@@ -22,10 +22,12 @@ class GalleryDetailsViewModel @Inject constructor(private val getGalleryDetails:
 
     private val _galleryDetailsListFlow = MutableStateFlow(GalleryDetailsListState(true))
     val galleryDetailsListFlow = _galleryDetailsListFlow.asStateFlow()
+
     init {
         fetchGalleryDetailsList()
     }
-    private fun fetchGalleryDetailsList() {
+
+    fun fetchGalleryDetailsList() {
         viewModelScope.launch {
             when (val result = getGalleryDetails()) {
                 is Resource.Loading -> _galleryDetailsListFlow.emit(GalleryDetailsListState(true))

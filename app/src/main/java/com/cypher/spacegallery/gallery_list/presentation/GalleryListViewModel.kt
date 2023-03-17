@@ -31,7 +31,7 @@ class GalleryListViewModel @Inject constructor(private val getGalleryList: GetGa
         viewModelScope.launch { _uiEventsFlow.emit(UiEvents.OpenDetailsPage(position)) }
     }
 
-    private fun fetchGalleryData() {
+    fun fetchGalleryData() {
         viewModelScope.launch {
             _galleryDataFlow.emit(GalleryDataState(true))
             val result = getGalleryList()

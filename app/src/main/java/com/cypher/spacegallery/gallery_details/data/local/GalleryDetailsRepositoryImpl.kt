@@ -2,7 +2,7 @@ package com.cypher.spacegallery.gallery_details.data.local
 
 import androidx.annotation.WorkerThread
 import com.cypher.spacegallery.core.helpers.Resource
-import com.cypher.spacegallery.database.dao.GalleryItemsDao
+import com.cypher.spacegallery.core.database.dao.GalleryItemsDao
 import com.cypher.spacegallery.gallery_details.domain.GalleryDetailsRepository
 import com.cypher.spacegallery.gallery_details.domain.models.GalleryDetailsItem
 import javax.inject.Inject

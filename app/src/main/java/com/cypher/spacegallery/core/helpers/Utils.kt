@@ -3,6 +3,7 @@ package com.cypher.spacegallery.core.helpers
 import android.content.Context
 import android.util.DisplayMetrics
 import com.cypher.spacegallery.core.Constants
+import com.cypher.spacegallery.core.database.entities.GalleryItemTable
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -20,4 +21,22 @@ object Utils {
         val outputFormat = SimpleDateFormat(Constants.OUTPUT_DATE_FORMAT, Locale.getDefault())
         return if (inputDate == null) date else outputFormat.format(inputDate)
     }
+
+    fun getDummyItemList(count: Int): List<GalleryItemTable> {
+        val list = List(count) {
+            GalleryItemTable(
+                id = it.toLong(),
+                date = "2023-08-20",
+                explanation = "Explanation $it",
+                hdUrl = "Hd Url $it",
+                copyright = null,
+                mediaType = "Type $it",
+                serviceVersion = "Version $it",
+                title = "Title $it",
+                url = "Url $it",
+            )
+        }
+        return list
+    }
+
 }
