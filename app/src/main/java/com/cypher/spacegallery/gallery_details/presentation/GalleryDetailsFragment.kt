@@ -55,7 +55,7 @@ class GalleryDetailsFragment : Fragment() {
         })
 
         galleryDetailsAdapter.setOnBackPressListener {
-            findNavController().navigate(R.id.GalleryListFragment)
+            findNavController().navigateUp()
         }
         initObservers()
     }
