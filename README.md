@@ -5,10 +5,7 @@ The project features Clean Model-View-ViewModel architectures with Dagger-Hilt a
 
 ## Screenshots
 
-![](https://github.com/pratikmhatre/SpaceGallery/blob/main/list.gif)
-
-
-![](https://github.com/pratikmhatre/SpaceGallery/blob/main/details.gif)
+![](https://github.com/pratikmhatre/SpaceGallery/blob/main/list.gif)   ![](https://github.com/pratikmhatre/SpaceGallery/blob/main/details.gif)
 
 
 
