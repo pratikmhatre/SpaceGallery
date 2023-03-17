@@ -27,9 +27,9 @@ The project features Clean Model-View-ViewModel architectures with Dagger-Hilt a
 Unit Tests and Instrumented Tests are present in the Test and AndroidTest directories respectively. Unit tests are present for testing the business logic while Instrumented tests checks for proper functioning of the DAO class.
 
 ```
-1. <b>UnitTestSuite.class</b> can be used to run all unit tests
+1. **UnitTestSuite.class** can be used to run all unit tests
 
-2. <b>InstrumentedTestSuite.class</b> can be used to run all instrumented tests.
+2. **InstrumentedTestSuite.class** can be used to run all instrumented tests.
 
 ```
 
