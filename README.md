@@ -4,8 +4,7 @@ The project features Clean Model-View-ViewModel architectures with Dagger-Hilt a
 
 
 ## Screenshots
-![](https://github.com/pratikmhatre/SpaceGallery/blob/main/list.gif)   
-![](https://github.com/pratikmhatre/SpaceGallery/blob/main/details.gif)
+![](https://github.com/pratikmhatre/SpaceGallery/blob/main/list.gif) ![](https://github.com/pratikmhatre/SpaceGallery/blob/main/details.gif)
 
 
 ## Libraries Used
@@ -16,6 +15,7 @@ The project features Clean Model-View-ViewModel architectures with Dagger-Hilt a
 - GSON for serialization
 - Google Truth library for Unit Testing
 - Turbine for testing Kotlin Flows
+
 
 
 ## Working Of The App
