@@ -1,12 +1,11 @@
 
 # Nasa Space Gallery
-
 The project features Clean Model-View-ViewModel architectures with Dagger-Hilt as dependency injection tool.
 
+
 ## Screenshots
-
-![](https://github.com/pratikmhatre/SpaceGallery/blob/main/list.gif)   ![](https://github.com/pratikmhatre/SpaceGallery/blob/main/details.gif)
-
+![](https://github.com/pratikmhatre/SpaceGallery/blob/main/list.gif)   
+![](https://github.com/pratikmhatre/SpaceGallery/blob/main/details.gif)
 
 
 ## Libraries Used
@@ -20,19 +19,17 @@ The project features Clean Model-View-ViewModel architectures with Dagger-Hilt a
 
 
 ## Working Of The App
-
 - The Space Gallery app displays a list of images with respective titles from a JSON file stored inside the project.
 - Clicking any image from the list opens a details page showing full size image with respective meta data.
 
 
 ## Running Tests
-
 Unit Tests and Instrumented Tests are present in the Test and AndroidTest directories respectively. Unit tests are present for testing the business logic while Instrumented tests checks for proper functioning of the DAO class.
 
 ```
-1. UnitTestSuite.class can be used to run all unit tests
+1. <b>UnitTestSuite.class</b> can be used to run all unit tests
 
-2. InstrumentedTestSuite.class can be used to run all instrumented tests.
+2. <b>InstrumentedTestSuite.class</b> can be used to run all instrumented tests.
 
 ```
 
