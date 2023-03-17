@@ -4,7 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import app.cash.turbine.test
 import com.cypher.spacegallery.gallery_details.data.local.DummyGalleryDetailsRepositoryImpl
 import com.cypher.spacegallery.gallery_details.domain.use_cases.GetGalleryDetailsList
-import com.cypher.utils.MainDispatcherRule
+import com.cypher.spacegallery.utils.MainDispatcherRule
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest

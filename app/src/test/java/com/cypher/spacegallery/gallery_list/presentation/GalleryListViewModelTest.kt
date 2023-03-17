@@ -5,7 +5,7 @@ import app.cash.turbine.test
 import com.cypher.spacegallery.gallery_list.data.network.DummyGalleryListRepository
 import com.cypher.spacegallery.gallery_list.domain.usecases.GetGalleryList
 import com.cypher.spacegallery.gallery_list.presentation.events.UiEvents
-import com.cypher.utils.MainDispatcherRule
+import com.cypher.spacegallery.utils.MainDispatcherRule
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest

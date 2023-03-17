@@ -1,4 +1,4 @@
-package com.cypher.utils
+package com.cypher.spacegallery.utils
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
