@@ -9,4 +9,6 @@ object Constants {
 
     const val INPUT_DATE_FORMAT = "yyyy-MM-dd"
     const val OUTPUT_DATE_FORMAT = "dd MMM yyyy"
+
+    const val GRID_SPACING = 8
 }

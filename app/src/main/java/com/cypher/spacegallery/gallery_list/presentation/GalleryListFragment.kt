@@ -1,6 +1,5 @@
 package com.cypher.spacegallery.gallery_list.presentation
 
-import android.graphics.Rect
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.cypher.spacegallery.core.helpers.Utils
 import com.cypher.spacegallery.core.helpers.collectWhileStarted
 import com.cypher.spacegallery.databinding.FragmentGalleryListBinding
@@ -50,9 +48,13 @@ class GalleryListFragment : Fragment() {
             layoutManager = GridLayoutManager(requireContext(), 2)
             adapter = galleryListAdapter
             if (itemDecorationCount == 0) {
-                addItemDecoration(getItemDecoration())
+                addItemDecoration(Utils.getGridItemDecoration(requireContext()))
             }
         }
+        initObservers()
+    }
+
+    private fun initObservers() {
         viewModel.galleryDataFlow.collectWhileStarted(viewLifecycleOwner) {
             binding.progressBar.isVisible = it.isLoading
             it.galleryData?.let { list ->
@@ -63,36 +65,6 @@ class GalleryListFragment : Fragment() {
             when (it) {
                 is UiEvents.ShowErrorMessage -> showErrorMessage(it.message)
                 is UiEvents.OpenDetailsPage -> openDetailsFragment(it.position)
-            }
-        }
-    }
-
-    private fun getItemDecoration(): RecyclerView.ItemDecoration {
-        return object : RecyclerView.ItemDecoration() {
-            override fun getItemOffsets(
-                outRect: Rect,
-                view: View,
-                parent: RecyclerView,
-                state: RecyclerView.State
-            ) {
-                val childAdapterPosition = parent.getChildAdapterPosition(view)
-
-                if (childAdapterPosition == 0 || childAdapterPosition == 1) {
-                    outRect.top = Utils.dpToPx(requireContext(), 8)
-                }
-                if (childAdapterPosition % 2 == 0) {
-                    outRect.apply {
-                        left = Utils.dpToPx(requireContext(), 8)
-                        right = Utils.dpToPx(requireContext(), 4)
-                    }
-                } else {
-                    outRect.apply {
-                        right = Utils.dpToPx(requireContext(), 8)
-                        left = Utils.dpToPx(requireContext(), 4)
-                    }
-                }
-                outRect.bottom = Utils.dpToPx(requireContext(), 8)
-
             }
         }
     }

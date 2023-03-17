@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="green">#4CAF50</color>
     <color name="light_grey">#EEEEEE</color>
+    <color name="color_paragraph">#8A8FA5</color>
+    <color name="color_header">#333F7E</color>
 </resources>

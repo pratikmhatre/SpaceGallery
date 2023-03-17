@@ -43,7 +43,6 @@ class GalleryListAdapter @Inject constructor() :
         fun bindItem(galleryListItem: GalleryListItem) {
             itemGalleryListBinding.apply {
                 ivGallery.setImageURI(galleryListItem.url)
-
                 tvTitle.text = galleryListItem.title
                 root.setOnClickListener {
                     itemClickListener?.run {

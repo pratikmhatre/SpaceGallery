@@ -8,6 +8,7 @@ import androidx.test.filters.SmallTest
 import com.cypher.spacegallery.core.database.GalleryDb
 import com.cypher.spacegallery.core.database.dao.GalleryItemsDao
 import com.cypher.spacegallery.core.database.entities.GalleryItemTable
+import com.cypher.spacegallery.core.helpers.Utils
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.runBlocking
 import org.junit.After
@@ -36,7 +37,7 @@ class GalleryDbTest {
     @Test
     fun insertGalleryItemsListTest() = runBlocking {
         val size = 100
-        val dummyList = getDummyItemList(size)
+        val dummyList = Utils.getDummyItemList(size)
         //save
         galleryItemsDao.insertGalleryItemsList(dummyList)
 
@@ -49,7 +50,7 @@ class GalleryDbTest {
     @Test
     fun deleteAllGalleryItemsTest() = runBlocking {
         val size = 50
-        val dummyList = getDummyItemList(size)
+        val dummyList = Utils.getDummyItemList(size)
 
         //save
         galleryItemsDao.insertGalleryItemsList(dummyList)

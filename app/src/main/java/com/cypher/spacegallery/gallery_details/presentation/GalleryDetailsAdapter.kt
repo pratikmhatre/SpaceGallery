@@ -7,9 +7,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.cypher.spacegallery.core.helpers.Utils.populateImageUrl
 import com.facebook.drawee.backends.pipeline.Fresco
 import com.facebook.drawee.controller.BaseControllerListener
 import com.facebook.drawee.view.SimpleDraweeView
@@ -31,7 +33,7 @@ class GalleryDetailsAdapter @Inject constructor() :
         ) = oldItem.imageUrl == newItem.imageUrl
 
         override fun areContentsTheSame(oldItem: GalleryDetailsItem, newItem: GalleryDetailsItem) =
-            oldItem.imageUrl == newItem.imageUrl
+            true
 
     }
     private var backpressListener: (() -> Unit)? = null
@@ -54,47 +56,28 @@ class GalleryDetailsAdapter @Inject constructor() :
 
     override fun getItemCount() = listDiffer.currentList.size
 
-    inner class GalleryItemHolder(private val itmeGalleryDetailsBinding: ItemGalleryDetailsBinding) :
-        RecyclerView.ViewHolder(itmeGalleryDetailsBinding.root) {
+    inner class GalleryItemHolder(private val itemGalleryDetailsBinding: ItemGalleryDetailsBinding) :
+        RecyclerView.ViewHolder(itemGalleryDetailsBinding.root) {
         fun bindItem(galleryDetailsItem: GalleryDetailsItem) {
-            itmeGalleryDetailsBinding.apply {
-
-                ivGallery.populateImage(galleryDetailsItem.imageUrl, galleryDetailsItem.hdUrl)
+            itemGalleryDetailsBinding.apply {
+                ivGallery.populateImageUrl(galleryDetailsItem.imageUrl)
                 tvToolbarTitle.text = galleryDetailsItem.title
                 tvTitle.text = galleryDetailsItem.title
                 tvDetails.text = galleryDetailsItem.explanation
                 tvDate.text = galleryDetailsItem.date
+                galleryDetailsItem.copyright?.run {
+                    tvToolbarSubtitle.isVisible = true
+                    tvToolbarSubtitle.text = this
+                }
 
 
                 btnBack.setOnClickListener {
-                    backpressListener?.let {action ->
+                    backpressListener?.let { action ->
                         action()
                     }
                 }
             }
         }
-    }
-
-    private fun SimpleDraweeView.populateImage(imageUrl: String, hdImageUrl: String) {
-        val controllerListener = object : BaseControllerListener<ImageInfo>() {
-            override fun onFinalImageSet(
-                id: String?,
-                imageInfo: ImageInfo?,
-                animatable: Animatable?
-            ) {
-                super.onFinalImageSet(id, imageInfo, animatable)
-                imageInfo?.let {
-                    this@populateImage.aspectRatio = it.width.toFloat() / it.height
-                }
-            }
-        }
-        val controller =
-            Fresco.newDraweeControllerBuilder().setControllerListener(controllerListener)
-                .setLowResImageRequest(
-                    ImageRequest.fromUri(imageUrl)
-                ).setUri(imageUrl).build()
-
-        this.controller = controller
     }
 
     fun setOnBackPressListener(listener: () -> Unit) {

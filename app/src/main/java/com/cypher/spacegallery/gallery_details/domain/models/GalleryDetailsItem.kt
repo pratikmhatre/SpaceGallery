@@ -1,7 +1,7 @@
 package com.cypher.spacegallery.gallery_details.domain.models
 
 data class GalleryDetailsItem(
-    val copyright: String?,
+    var copyright: String?,
     var date: String,
     val explanation: String,
     val hdUrl: String,

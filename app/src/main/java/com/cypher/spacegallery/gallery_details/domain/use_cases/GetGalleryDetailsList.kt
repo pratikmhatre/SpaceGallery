@@ -12,6 +12,7 @@ class GetGalleryDetailsList @Inject constructor(private val repository: GalleryD
         if (result is Resource.Success) {
             result.data?.map {
                 it.date = Utils.getFormattedDate(it.date)
+                it.copyright?.run { it.copyright = Utils.prependCopyrightSymbol(this) }
             }
         }
         return result

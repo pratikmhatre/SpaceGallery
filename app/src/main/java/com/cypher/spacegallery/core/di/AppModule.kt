@@ -2,6 +2,7 @@ package com.cypher.spacegallery.core.di
 
 import android.content.Context
 import androidx.room.Room
+import com.cypher.spacegallery.core.Constants
 import com.cypher.spacegallery.core.database.GalleryDb
 import com.cypher.spacegallery.core.database.dao.GalleryItemsDao
 import dagger.Module
@@ -17,7 +18,7 @@ object AppModule {
     @Singleton
     @Provides
     fun provideGalleryDb(@ApplicationContext context: Context): GalleryDb {
-        return Room.databaseBuilder(context, GalleryDb::class.java, "GalleryDb").build()
+        return Room.databaseBuilder(context, GalleryDb::class.java, Constants.DB_NAME).build()
     }
 
     @Singleton
