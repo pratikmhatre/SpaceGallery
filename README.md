@@ -3,7 +3,14 @@
 
 The project features Clean Model-View-ViewModel architectures with Dagger-Hilt as dependency injection tool.
 
-## Third Party Libraries Used
+## Screenshots
+
+![]()
+![]()
+
+
+
+## Libraries Used
 - AndroidX Navigation Architecture with SafeArgs
 - Kotlin Coroutines, Flows for async processing
 - Room Db for offline storage
