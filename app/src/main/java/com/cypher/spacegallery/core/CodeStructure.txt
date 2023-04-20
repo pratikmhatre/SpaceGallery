@@ -1,0 +1,26 @@
+app/
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   ├── com.example.app/
+│   │   │   │   ├── di/                 # Dagger-Hilt Dependency Injection related classes
+│   │   │   │   │   ├── AppModule.java
+│   │   │   │   │   ├── NetworkModule.java
+│   │   │   │   │   └── RepositoryModule.java
+│   │   │   │   ├── data/               # Data layer classes
+│   │   │   │   │   ├── model/          # Data models used throughout the app
+│   │   │   │   │   ├── repository/     # Data repository classes
+│   │   │   │   │   ├── api/            # Network API interface and implementation
+│   │   │   │   │   └── datasource/     # Data source classes
+│   │   │   │   ├── domain/             # Domain layer classes
+│   │   │   │   │   ├── model/          # Domain models used throughout the app
+│   │   │   │   │   ├── usecase/        # Use case classes
+│   │   │   │   │   └── repository/     # Repository interfaces used in the domain layer
+│   │   │   │   ├── presentation/       # Presentation layer classes
+│   │   │   │   │   ├── model/           # View models used throughout the app
+│   │   │   │   │   ├── ui/              # Activities, fragments and adapters used for user interface
+│   │   │   │   │   └── util/            # Utility classes used in the presentation layer
+│   │   │   │   └── App.java             # Application class
+│   │   │   └── res/                     # Resources used in the app
+│   └── test/                             # Test-related classes
+└── build.gradle                          # Gradle build script
