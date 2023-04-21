@@ -20,32 +20,27 @@ class GalleryListRepositoryImpl @Inject constructor(
     GalleryListRepository {
 
     @WorkerThread
-    override suspend fun getImageList(): Resource<List<GalleryListItem>> {
-        return try {
+    override suspend fun getImageList(): List<GalleryListItem> {
+        val rawData = getStringDataFromFile(context, Constants.JSON_FILE_NAME)
 
-            val rawData = getStringDataFromFile(context, Constants.JSON_FILE_NAME)
+        val dataToke = object : TypeToken<List<GalleryListItemDto>>() {}.type
+        val galleryData: List<GalleryListItemDto> = Gson().fromJson(rawData, dataToke)
 
-            val dataToke = object : TypeToken<List<GalleryListItemDto>>() {}.type
-            val galleryData: List<GalleryListItemDto> = Gson().fromJson(rawData, dataToke)
-
-            val galleryTableList = galleryData.map {
-                it.toGalleryItemTable()
-            }
-
-            //delete existing records
-            galleryItemsDao.deleteAllGalleryItems()
-
-            //save to db
-            galleryItemsDao.insertGalleryItemsList(galleryTableList)
-
-            //fetch from db
-            val savedList = galleryItemsDao.getGalleryItemsList().map {
-                GalleryListItem(it.title, it.url)
-            }
-            Resource.Success(savedList)
-        } catch (e: Exception) {
-            Resource.Error(e)
+        val galleryTableList = galleryData.map {
+            it.toGalleryItemTable()
         }
+
+        //delete existing records
+        galleryItemsDao.deleteAllGalleryItems()
+
+        //save to db
+        galleryItemsDao.insertGalleryItemsList(galleryTableList)
+
+        //fetch from db
+        val savedList = galleryItemsDao.getGalleryItemsList().map {
+            GalleryListItem(it.title, it.url)
+        }
+        return savedList
     }
 
     private fun getStringDataFromFile(context: Context, fileName: String): String {

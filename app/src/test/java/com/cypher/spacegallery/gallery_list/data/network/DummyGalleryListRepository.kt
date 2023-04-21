@@ -7,14 +7,14 @@ import com.cypher.spacegallery.gallery_list.domain.models.GalleryListItem
 
 class DummyGalleryListRepository : GalleryListRepository {
     private var simulateError = false
-    override suspend fun getImageList(): Resource<List<GalleryListItem>> {
+    override suspend fun getImageList(): List<GalleryListItem> {
         return if (simulateError) {
-            Resource.Error(Exception())
+            listOf()
         } else {
             val dummyList = getDummyItemList(5).map {
                 GalleryListItem(it.title, it.url)
             }
-            Resource.Success(dummyList)
+            dummyList
         }
     }
 

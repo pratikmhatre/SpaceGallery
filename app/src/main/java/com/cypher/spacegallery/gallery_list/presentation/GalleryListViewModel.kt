@@ -7,10 +7,7 @@ import com.cypher.spacegallery.gallery_list.domain.usecases.GetGalleryList
 import com.cypher.spacegallery.gallery_list.presentation.events.GalleryDataState
 import com.cypher.spacegallery.gallery_list.presentation.events.UiEvents
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asSharedFlow
-import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -32,21 +29,19 @@ class GalleryListViewModel @Inject constructor(private val getGalleryList: GetGa
     }
 
     fun fetchGalleryData() {
-        viewModelScope.launch {
-            _galleryDataFlow.emit(GalleryDataState(true))
-            val result = getGalleryList()
-            when (result) {
-                is Resource.Loading -> {
-                    _galleryDataFlow.emit(GalleryDataState(true))
-                }
-                is Resource.Success -> {
-                    _galleryDataFlow.emit(GalleryDataState(galleryData = result.data))
-                }
+        getGalleryList().onEach {
+            when (it) {
+                is Resource.Loading -> _galleryDataFlow.emit(GalleryDataState(isLoading = true))
                 is Resource.Error -> {
-                    _galleryDataFlow.emit(GalleryDataState(false))
-                    _uiEventsFlow.emit(UiEvents.ShowErrorMessage(result.exception?.message))
+                    _galleryDataFlow.emit(GalleryDataState(isLoading = false))
+                    _uiEventsFlow.emit(
+                        UiEvents.ShowErrorMessage(
+                            it.exception?.message ?: "Something went wrong"
+                        )
+                    )
                 }
+                is Resource.Success -> _galleryDataFlow.emit(GalleryDataState(galleryData = it.data))
             }
-        }
+        }.launchIn(viewModelScope)
     }
 }

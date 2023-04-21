@@ -57,12 +57,17 @@ class GalleryListViewModelTest {
         val viewModel = GalleryListViewModel(useCase)
 
 
-        viewModel.fetchGalleryData()
-        viewModel.uiEventsFlow.test {
+        viewModel.galleryDataFlow.test {
+            //default emission
             awaitItem()
+
+            //loading emission
+            awaitItem()
+
             val emission = awaitItem()
-            assertThat(emission).isInstanceOf(UiEvents.ShowErrorMessage::class.java)
+            assertThat(emission.errorMessage).isNotNull()
         }
+        viewModel.fetchGalleryData()
     }
 
     @Test
