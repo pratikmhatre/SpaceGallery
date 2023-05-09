@@ -9,7 +9,14 @@ plugins {
 android {
     namespace 'com.cypher.spacegallery'
     compileSdk 33
-
+    signingConfigs {
+        release {
+            storeFile file('/Users/pratikmhatre/AndroidStudioProjects/SpaceGallery/store/SpaceKeystore.jks')
+            storePassword 'myangel0'
+            keyAlias 'pnmhatre'
+            keyPassword 'myangel0'
+        }
+    }
     defaultConfig {
         applicationId "com.cypher.spacegallery"
         minSdk 21
