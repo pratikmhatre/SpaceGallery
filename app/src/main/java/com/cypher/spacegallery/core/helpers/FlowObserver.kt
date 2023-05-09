@@ -11,7 +11,8 @@ import kotlinx.coroutines.launch
 
 inline fun <reified T> Flow<T>.collectWhileStarted(
     owner: LifecycleOwner,
-    noinline collector: suspend (T) -> Unit
+    noinline collector: suspend (T) ->
+    Unit
 ) {
     object : DefaultLifecycleObserver {
         private var job: Job? = null
