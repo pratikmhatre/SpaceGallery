@@ -56,16 +56,9 @@ class GalleryListViewModelTest {
         val useCase = GetGalleryList(dummyRepo)
         val viewModel = GalleryListViewModel(useCase)
 
-
-        viewModel.galleryDataFlow.test {
-            //default emission
-            awaitItem()
-
-            //loading emission
-            awaitItem()
-
+        viewModel.uiEventsFlow.test {
             val emission = awaitItem()
-            assertThat(emission.errorMessage).isNotNull()
+            assertThat(emission).isInstanceOf(UiEvents.ShowErrorMessage::class.java)
         }
         viewModel.fetchGalleryData()
     }
