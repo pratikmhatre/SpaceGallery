@@ -10,12 +10,12 @@ android {
     namespace 'com.cypher.spacegallery'
     compileSdk 33
     signingConfigs {
-        release {
+        /*release {
             storeFile file('/Users/pratikmhatre/AndroidStudioProjects/SpaceGallery/store/SpaceKeystore.jks')
             storePassword 'myangel0'
             keyAlias 'pnmhatre'
             keyPassword 'myangel0'
-        }
+        }*/
     }
     defaultConfig {
         applicationId "com.cypher.spacegallery"
@@ -30,7 +30,7 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            signingConfig signingConfigs.release
+//            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
