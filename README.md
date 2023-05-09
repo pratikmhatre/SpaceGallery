@@ -1,3 +1,5 @@
+[![Build status](https://build.appcenter.ms/v0.1/apps/6fa13e86-a765-419d-a2e9-d9502cd6ebe4/branches/main/badge)](https://appcenter.ms)
+
 
 # Nasa Space Gallery
 The project features Clean Model-View-ViewModel architectures with Dagger-Hilt as dependency injection tool.
